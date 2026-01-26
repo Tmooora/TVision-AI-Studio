@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #0b0f19;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+header {
+  padding: 20px;
+  background: #11162a;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.panel {
+  background: #151b34;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+.panel:hover { background: #1f2650; }
+input, textarea, button, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+}
+button {
+  background: #5b7cff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover { background: #6f8cff; }
+.preview {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+img, video, canvas {
+  max-width: 100%;
+  border-radius: 12px;
+}
+.log {
+  height: 200px;
+  overflow: auto;
+  background: #0f1322;
+  padding: 10px;
+  border-radius: 8px;
+}
+#langToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #5b7cff;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#wmark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: .5;
+  font-size: 12px;
+}
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+.tab {
+  flex: 1 1 120px;
+  padding: 10px;
+  text-align: center;
+  background: #1a1f3a;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tab.active { background: #5b7cff; }
+#timeline {
+  height: 80px;
+  background: #1a1f3a;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding: 5px;
+}
+.timeline-item {
+  background: #11162a;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+}
