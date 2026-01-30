@@ -165,47 +165,9 @@ document.querySelectorAll(".tab").forEach(tab=>{
   });
 });
 
-// =================  currentProject="Project_"+Date.now(); promptInput.value=""; logMsg("🆕 مشروع جديد"); saveSession();
-});
-
-document.getElementById("deleteProject").addEventListener("click", ()=>{
-  let p=projectList.value;
-  if(!p){alert("اختر مشروع"); return;}
-  delete projects[p];
-  localStorage.setItem("projects",JSON.stringify(projects));
-  updateProjectList();
-  logMsg("🗑️ تم حذف المشروع: "+p);
-});
-
-// Export
-document.getElementById("exportImage").addEventListener("click", ()=>{
-  alert("🚀 Image Exported (Simulation)");
-  logMsg("📦 Image Exported");
-});
-
-document.getElementById("exportVideo").addEventListener("click", ()=>{
-  alert("🚀 Video Exported (Simulation)");
-  logMsg("📦 Video Exported");
-});
-
-// Language toggle
-document.getElementById("langToggle").addEventListener("click", ()=>{
-  isEn=!isEn;
-  tUpload.innerText=isEn?"Upload File":"📂 ارفع ملفك";
-  tPrompt.innerText=isEn?"Describe Your Idea":"🧠 صف فكرتك";
-});
-
-// Tabs
-document.querySelectorAll(".tab").forEach(tab=>{
-  tab.addEventListener("click", ()=>{
-    document.querySelectorAll(".panel").forEach(p=>p.style.display="none");
-    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-    tab.classList.add("active");
-    document.getElementById(tab.dataset.tab).style.display="block";
-  });
-});
-
-// Log helper
+// ==========================
+// Log helper + Watermark
+// ==========================
 function logMsg(msg){
   let p=document.createElement("p");
   p.innerText=new Date().toLocaleTimeString()+" - "+msg;
@@ -214,4 +176,7 @@ function logMsg(msg){
 
 function addWatermark(){
   let w=document.createElement("div");
-  w.id="w
+  w.id="wmark";
+  w.innerText="TVision Alpha";
+  preview.appendChild(w);
+}
