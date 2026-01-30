@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TVision AI Studio Alpha 4</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TVision AI Studio Alpha 4</title>
+  <!-- ربط ملف التنسيق -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="langToggle">EN / عربي</div>
+  <!-- زر تغيير اللغة -->
+  <div id="langToggle">EN / عربي</div>
 
-<header>🚀 TVision AI Studio Alpha 4</header>
+  <!-- الهيدر -->
+  <header>🚀 TVision AI Studio Alpha 4</header>
 
-<div class="container">
+  <div class="container">
 
-<!-- Tabs -->
-<div class="tabs">
-  <div class="tab active" data-tab="studio">AI Studio</div>
-  <div class="tab" data-tab="projects">Projects</div>
-  <div class="tab" data-tab="export">Export</div>
-</div>
+    <!-- التبويبات -->
+    <div class="tabs">
+      <div class="tab active" data-tab="studio">AI Studio</div>
+      <div class="tab" data-tab="projects">Projects</div>
+      <div class="tab" data-tab="export">Export</div>
+    </div>
 
-<!-- Studio Panel -->
-<div class="panel" id="studio">
-  <h3 id="tUpload">📂 ارفع ملفك</h3>
-  <input type="file" id="fileInput" accept="image/*,video/*">
-  <p>Credits: <span id="credits">20</span></p>
+    <!-- لوحة الاستوديو -->
+    <div class="panel" id="studio">
+      <h3 id="tUpload">📂 ارفع ملفك</h3>
+      <input type="file" id="fileInput" accept="image/*,video/*">
+      <p>Credits: <span id="credits">20</span></p>
 
-  <h3 id="tPrompt">🧠 صف فكرتك</h3>
-  <textarea id="prompt" placeholder="مثال: خلي الفيديو سينمائي، ألوان دافية، حركة ناعمة..."></textarea>
+      <h3 id="tPrompt">🧠 صف فكرتك</h3>
+      <textarea id="prompt" placeholder="مثال: خلي الفيديو سينمائي، ألوان دافية، حركة ناعمة..."></textarea>
 
-  <button id="runAI">تشغيل AI</button>
-  <button id="speakPrompt">🗣️ نطق الـ Prompt</button>
+      <button id="runAI">تشغيل AI</button>
+      <button id="speakPrompt">🗣️ نطق الـ Prompt</button>
 
-  <select id="preset">
-    <option>اختر Preset / Choose Preset</option>
-    <option>Cinematic</option>
-    <option>YouTube</option>
-    <option>TikTok</option>
-    <option>Ads</option>
-  </select>
-  <button id="applyPreset">تطبيق Preset</button>
+      <select id="preset">
+        <option>اختر Preset / Choose Preset</option>
+        <option>Cinematic</option>
+        <option>YouTube</option>
+        <option>TikTok</option>
+        <option>Ads</option>
+      </select>
+      <button id="applyPreset">تطبيق Preset</button>
 
-  <div class="preview" id="preview"></div>
-  <button id="grayscale">تحويل أبيض وأسود / Grayscale</button>
+      <div class="preview" id="preview"></div>
+      <button id="grayscale">تحويل أبيض وأسود / Grayscale</button>
 
-  <div id="timeline"></div>
+      <div id="timeline"></div>
 
-  <div class="panel">
-    <h3>📜 سجل العمليات</h3>
-    <div class="log" id="log"></div>
+      <div class="panel">
+        <h3>📜 سجل العمليات</h3>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+
+    <!-- لوحة المشاريع -->
+    <div class="panel" id="projects" style="display:none">
+      <h3>🗂 Projects</h3>
+      <select id="projectList"></select>
+      <button id="loadProject">فتح المشروع</button>
+      <button id="newProject">مشروع جديد</button>
+      <button id="deleteProject">حذف المشروع</button>
+    </div>
+
+    <!-- لوحة التصدير -->
+    <div class="panel" id="export" style="display:none">
+      <h3>📦 Export Center</h3>
+      <button id="exportImage">Export Image</button>
+      <button id="exportVideo">Export Video</button>
+      <p>Watermark مجاني على النسخة المجانية</p>
+    </div>
+
   </div>
-</div>
 
-<!-- Projects Panel -->
-<div class="panel" id="projects" style="display:none">
-  <h3>🗂 Projects</h3>
-  <select id="projectList"></select>
-  <button id="loadProject">فتح المشروع</button>
-  <button id="newProject">مشروع جديد</button>
-  <button id="deleteProject">حذف المشروع</button>
-</div>
-
-<!-- Export Panel -->
-<div class="panel" id="export" style="display:none">
-  <h3>📦 Export Center</h3>
-  <button id="exportImage">Export Image</button>
-  <button id="exportVideo">Export Video</button>
-  <p>Watermark مجاني على النسخة المجانية</p>
-</div>
-
-</div>
-
-<script src="script.js"></script>
+  <!-- ربط ملف الوظائف -->
+  <script src="script.js"></script>
 </body>
-  </html>
+</html>
