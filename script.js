@@ -1,4 +1,6 @@
+// ==========================
 // عناصر أساسية
+// ==========================
 let fileInput = document.getElementById("fileInput");
 let promptInput = document.getElementById("prompt");
 let preset = document.getElementById("preset");
@@ -17,7 +19,9 @@ let projects = JSON.parse(localStorage.getItem("projects")) || {};
 let currentProject = null;
 let isEn = false;
 
+// ==========================
 // رفع الملفات
+// ==========================
 fileInput.onchange = e => {
   let file = e.target.files[0];
   showPreview(file);
@@ -40,7 +44,9 @@ function showPreview(file){
   }
 }
 
+// ==========================
 // وظائف الأزرار
+// ==========================
 document.getElementById("runAI").addEventListener("click", ()=>{
   if(credits<=0){alert("خلصت Credits"); return;}
   credits--; localStorage.setItem("credits",credits);
@@ -77,14 +83,18 @@ document.getElementById("speakPrompt").addEventListener("click", ()=>{
   speechSynthesis.speak(utter);
 });
 
+// ==========================
 // Timeline
+// ==========================
 function addTimelineItem(name){
   let t=document.createElement("div");
   t.className="timeline-item"; t.innerText=name;
   timeline.appendChild(t);
 }
 
-// Project Management
+// ==========================
+// إدارة المشاريع
+// ==========================
 function saveSession(){
   if(!currentProject) currentProject="Project_"+Date.now();
   projects[currentProject]={prompt:promptInput.value};
@@ -104,10 +114,58 @@ document.getElementById("loadProject").addEventListener("click", ()=>{
   if(!p)return; alert("Loaded: "+p);
   promptInput.value=projects[p].prompt;
   currentProject=p;
+  logMsg("📂 تم تحميل المشروع: "+p);
 });
 
 document.getElementById("newProject").addEventListener("click", ()=>{
   currentProject="Project_"+Date.now(); promptInput.value=""; logMsg("🆕 مشروع جديد"); saveSession();
+});
+
+document.getElementById("deleteProject").addEventListener("click", ()=>{
+  let p=projectList.value;
+  if(!p){alert("اختر مشروع"); return;}
+  delete projects[p];
+  localStorage.setItem("projects",JSON.stringify(projects));
+  updateProjectList();
+  logMsg("🗑️ تم حذف المشروع: "+p);
+});
+
+// ==========================
+// Export
+// ==========================
+document.getElementById("exportImage").addEventListener("click", ()=>{
+  alert("🚀 Image Exported (Simulation)");
+  logMsg("📦 Image Exported");
+});
+
+document.getElementById("exportVideo").addEventListener("click", ()=>{
+  alert("🚀 Video Exported (Simulation)");
+  logMsg("📦 Video Exported");
+});
+
+// ==========================
+// Language toggle
+// ==========================
+document.getElementById("langToggle").addEventListener("click", ()=>{
+  isEn=!isEn;
+  tUpload.innerText=isEn?"Upload File":"📂 ارفع ملفك";
+  tPrompt.innerText=isEn?"Describe Your Idea":"🧠 صف فكرتك";
+  logMsg(isEn?"🌐 Language switched to English":"🌐 تم التحويل للعربية");
+});
+
+// ==========================
+// Tabs
+// ==========================
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.addEventListener("click", ()=>{
+    document.querySelectorAll(".panel").forEach(p=>p.style.display="none");
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.tab).style.display="block";
+  });
+});
+
+// =================  currentProject="Project_"+Date.now(); promptInput.value=""; logMsg("🆕 مشروع جديد"); saveSession();
 });
 
 document.getElementById("deleteProject").addEventListener("click", ()=>{
